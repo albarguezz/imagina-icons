@@ -1,6 +1,6 @@
 # Imagina Icons
 
-Librería de iconos SVG de uso interno para los proyectos de **Imagina Ingenio**. Diseñada para integrarse de forma nativa en Vue 3, con soporte para HTML puro y cualquier framework a futuro.
+Librería de iconos SVG. Diseñada para integrarse de forma nativa en Vue 3, con soporte para HTML puro y cualquier framework a futuro.
 
 Cada icono está disponible en tres variantes — `outline`, `solid` y `duotone` — y puede controlarse completamente mediante CSS custom properties o props de componente.
 
