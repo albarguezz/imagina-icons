@@ -1,0 +1,25 @@
+{
+  "name": "@imagina-icons/core",
+  "author": "Alba Rodríguez",
+  "description": "Iconos de Imagina Icons",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/icons/index.js",
+  "types": "./dist/icons/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/icons/index.js",
+      "types": "./dist/icons/index.d.ts"
+    },
+    "./css": "./dist/imagina-icons.css"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "npm run build:types && npm run build:css",
+    "build:types": "tsc",
+    "build:css": "node scripts/build-css.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

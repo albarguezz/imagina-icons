@@ -1,0 +1,34 @@
+{
+  "name": "@imagina-icons/vue",
+  "version": "1.0.0",
+  "author": "Alba Rodríguez",
+  "description": "Iconos de Imagina Icons para Vue 3",
+  "type": "module",
+  "main": "./dist/imagina-icons-vue.cjs.js",
+  "module": "./dist/imagina-icons-vue.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/imagina-icons-vue.es.js",
+      "require": "./dist/imagina-icons-vue.cjs.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "vite build"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "dependencies": {
+    "@imagina-icons/core": "^1.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "typescript": "^5.4.0",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^3.0.0",
+    "vue": "^3.0.0"
+  }
+}

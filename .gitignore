@@ -1,0 +1,12 @@
+.idea/
+.idea/*
+.npmrc
+
+packages/core/dist/
+packages/core/dist/*
+
+packages/vue/dist/
+packages/vue/dist/*
+
+node_modules/
+node_modules/*

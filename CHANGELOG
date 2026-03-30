@@ -1,0 +1,74 @@
+# Changelog
+
+Todos los cambios relevantes de **Imagina Icons** se documentan en este archivo.
+
+El formato sigue [Keep a Changelog](https://keepachangelog.com/es/1.0.0/)
+y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
+
+---
+
+## [1.0.0] — 2025-03-26
+
+### Añadido
+
+#### `@imagina-icons/core`
+- Librería base con iconos SVG en tres variantes: `outline`, `solid` y `duotone`.
+- Sistema de CSS custom properties: `--mi-size`, `--mi-color`, `--mi-stroke-width`,
+  `--mi-secondary-color`, `--mi-secondary-opacity`.
+- Clases de tamaño: `.mi-xs`, `.mi-sm`, `.mi-md`, `.mi-lg`, `.mi-xl`, `.mi-2x`, `.mi-3x`, `.mi-4x`.
+- Clases de animación: `.mi-spin`, `.mi-pulse`, `.mi-bounce`, `.mi-ping`.
+- Script de build `build-css.js` que genera:
+  - `dist/myicons.css` con todos los iconos como `background-image` data-URI.
+  - `dist/index.html` con preview interactivo, buscador, categorías y documentación de instalación.
+- Tipos TypeScript exportados: `IconName`, `IconVariant`, `IconDefinition`.
+
+#### `@imagina-icons/vue`
+- Componente `<mi-icon>` con props: `name`, `variant`, `size`, `color`,
+  `secondaryColor`, `secondaryOpacity`, `strokeWidth`, `animation`.
+- Composable `useIcon(name, variant?)` para acceso directo al SVG como string reactivo.
+- Plugin `MyIconsPlugin` para registro global en Vue 3.
+- Soporte completo de TypeScript con autocompletado de nombres de icono.
+- Animaciones CSS integradas en el componente: `spin`, `pulse`, `bounce`, `ping`.
+
+#### Monorepo
+- Estructura de npm workspaces con `packages/core` y `packages/vue`.
+- Scripts raíz: `build`, `build:core`, `build:vue`, `dev`.
+- Configuración de publicación apuntando al GitLab Package Registry interno.
+- Archivo `LICENSE` de uso interno restringido a Imagina.
+
+---
+
+## [Unreleased]
+
+> Los cambios en desarrollo que aún no tienen versión asignada se listan aquí
+> y se mueven a una nueva sección en el momento del release.
+
+### Pendiente
+- Categorizar los iconos
+- Añadir prefijo `mis / mio / mir` a todas las clases CSS para cambiar tipo de icono (outline, solid, duotone, regular).
+- Añadir tipo de iconos regular (similar a FontAwesome).
+- Añadir más iconos por categoría.
+- Añadir compatibilidad con ionic.
+- Añadir compatibilidad con Angular.
+- Añadir compatibilidad con React Native.
+- Añadir compatibilidad con Android.
+- Paquete `@imagina-icons/react`.
+- Paquete `@imagina-icons/webcomponents`.
+- CLI `npx imagina-icons add <nombre>` para añadir iconos individuales.
+
+---
+
+## Guía de versiones
+
+| Tipo de cambio         | Versión que sube | Ejemplo              |
+|------------------------|------------------|----------------------|
+| Nuevos iconos          | `minor`          | `1.0.0` → `1.1.0`   |
+| Nuevos paquetes        | `minor`          | `1.0.0` → `1.1.0`   |
+| Corrección de iconos   | `patch`          | `1.0.0` → `1.0.1`   |
+| Cambio de API          | `major`          | `1.0.0` → `2.0.0`   |
+| Renombrar iconos       | `major`          | `1.0.0` → `2.0.0`   |
+
+---
+
+[1.0.0]: https://git.imaginadesarrollo.es/packages/imagina-icons/-/releases/v1.0.0
+[Unreleased]: https://git.imaginadesarrollo.es/packages/imagina-icons/-/compare/v1.0.0...HEAD

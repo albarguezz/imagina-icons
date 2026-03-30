@@ -1,0 +1,20 @@
+{
+  "name": "imagina-icons",
+  "author": "Alba Rodríguez",
+  "license": "SEE LICENSE IN LICENSE",
+  "description": "Icon library for applications imagina",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "build:core": "npm run build -w @imagina-icons/core",
+    "build:vue": "npm run build -w @imagina-icons/vue",
+    "dev": "npm run build:core && npm run dev -w @imagina-icons/vue"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}
