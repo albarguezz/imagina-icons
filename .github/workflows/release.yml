@@ -1,0 +1,59 @@
+name: Publish & Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://npm.pkg.github.com
+
+      - name: Install
+        run: npm install
+
+      # 🏷️ Obtener tag
+      - name: Get tag
+        id: tag
+        run: echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      # 📦 Extraer paquete
+      - name: Extract package
+        id: pkg
+        run: |
+          TAG=${{ steps.tag.outputs.TAG }}
+          NAME=$(echo $TAG | cut -d'@' -f1)
+          VERSION=$(echo $TAG | cut -d'@' -f2)
+          echo "NAME=$NAME" >> $GITHUB_OUTPUT
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+
+      # 📤 Publicar npm
+      - name: Publish package
+        run: npm publish --workspace=@albarguezz/${{ steps.pkg.outputs.NAME }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+
+      # 📝 Generar changelog (simple)
+      - name: Generate changelog
+        id: changelog
+        run: |
+          git log -1 --pretty=%B > CHANGELOG.md
+
+      # 🚀 Crear GitHub Release
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ steps.pkg.outputs.NAME }} v${{ steps.pkg.outputs.VERSION }}
+          tag_name: ${{ steps.tag.outputs.TAG }}
+          body_path: CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
