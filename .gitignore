@@ -10,3 +10,6 @@ packages/vue/dist/*
 
 node_modules/
 node_modules/*
+
+.env
+.npmrc
