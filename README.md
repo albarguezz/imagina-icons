@@ -1,22 +1,10 @@
 # Imagina Icons
 
-Librería de iconos SVG de uso interno para los proyectos de **Imagina Ingenio**. Diseñada para integrarse de forma nativa en Vue 3, con soporte para HTML puro y cualquier framework a futuro.
+Librería de iconos SVG. Diseñada para integrarse de forma nativa en Vue 3, con soporte para HTML puro y cualquier framework a futuro.
 
 Cada icono está disponible en tres variantes — `outline`, `solid` y `duotone` — y puede controlarse completamente mediante CSS custom properties o props de componente.
 
 ---
-
-## Contenido del monorepo
-
-```
-imagina-icons/
-├── packages/
-│   ├── core/          # SVGs, tipos TypeScript y CSS generado
-│   └── vue/           # Componente, plugin y composable para Vue 3
-├── package.json       # Raíz del workspace
-├── CHANGELOG.md
-└── LICENSE
-```
 
 | Paquete | Descripción |
 |---|---|
@@ -34,29 +22,6 @@ imagina-icons/
 
 ## Instalación en un proyecto
 
-### Desde el GitLab Package Registry (recomendado)
-
-Crea un archivo `.npmrc` en la raíz del proyecto donde vayas a instalar la librería:
-
-```
-@imagina-icons:registry=https://git.imaginadesarrollo.es/api/v4/projects/{PROJECT_ID}/packages/npm/
-//git.imaginadesarrollo.es/api/v4/projects/{PROJECT_ID}/packages/npm/:_authToken=TU_TOKEN
-```
-
-Luego instala los paquetes:
-
-```bash
-npm install @imagina-icons/core @imagina-icons/vue
-```
-
-### Desde ruta local (desarrollo)
-
-```bash
-npm install ../imagina-icons/packages/core
-npm install ../imagina-icons/packages/vue
-```
-
----
 
 ## Uso en Vue 3
 
