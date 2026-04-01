@@ -10,15 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repo
+      - uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           registry-url: https://npm.pkg.github.com
 
-      - name: Install
+      - name: Install dependencies
         run: npm install
 
       # 🏷️ Obtener tag
@@ -33,12 +34,13 @@ jobs:
           TAG=${{ steps.tag.outputs.TAG }}
           NAME=$(echo $TAG | cut -d'@' -f1)
           VERSION=$(echo $TAG | cut -d'@' -f2)
+          
           echo "NAME=$NAME" >> $GITHUB_OUTPUT
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
       # 📤 Publicar npm
       - name: Publish package
-        run: npm publish --workspace=@albarguezz/${{ steps.pkg.outputs.NAME }}
+        run: npm publish --workspace=@imagina-icons/${{ steps.pkg.outputs.NAME }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
