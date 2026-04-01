@@ -2,7 +2,7 @@
   "name": "imagina-icons",
   "author": "Alba Rodríguez",
   "license": "SEE LICENSE IN LICENSE",
-  "description": "Icon library for applications imagina",
+  "description": "Icon library for applications",
   "private": true,
   "type": "module",
   "workspaces": [
